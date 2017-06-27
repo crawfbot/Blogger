@@ -1,0 +1,453 @@
+﻿
+@model IPagedList<Blogger.Models.BlogPost>
+
+@using PagedList;
+@using PagedList.Mvc;
+
+@{
+    ViewBag.Title = "Home Page";
+}
+
+    <!-- Section : xxx Start -->
+<div class="section dark page-header" style="background: url('/Media/redbluecosmosinvert.jpg'); background-size: cover;">
+    <div class="bg image overlay"></div>
+    <div class="section-container">
+        <div class="section-body">
+            <div class="container">
+                <h1 style="color: white;">Blog : <small style="color: #dedede;">Head In The Stars</small></h1>
+
+            </div>
+        </div>
+    </div>
+</div>
+<!-- // Section : xxx End -->
+
+<br />
+    <!-- Section : xxx Start -->
+    <div class="section light blog">
+        <div class="bg overlay"></div>
+        <div class="section-container">
+            <div class="section-body">
+                <div class="container">
+                    <div class="row">
+                        <!-- Blog Content Full -->
+                        <div class="col-md-8">
+                            <!--   Blog Content  -->
+                            <div class="blog-item-body">
+
+                                   @foreach (var item in Model)
+                                    {
+                                @*<div>
+                                 
+                                        <h1>@item.Title</h1>
+                                    <hr />
+                                        <span>@item.Created | Jacob Crawford</span>
+                                    <hr />
+                                        <h3>@Html.Raw(item.Body)</h3>
+                                        <hr /><hr />
+
+
+                                </div>*@
+
+                                @*<div class="similar_post">*@
+                                    @*<h3>Similar post</h3>*@
+
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <div class="single-news">
+                                                <div class="thumbnail">
+                                                    <div class="date"> @item.Created </div> <img alt="100%x200" src="~/Media/blogthumb1.jpg" style="width: 100%; display: block;">
+                                                    <div class="caption">
+                                                        <h3>@item.Title</h3>
+                                                        <p>@Html.Raw(item.Body)</p> 
+
+                                                        <a href="@Url.Action("Details","BlogPosts", new { Slug = item.Slug })" class="btn btn-link text-uppercase">Read More <i class="icon btn-icon fa fa-long-arrow-right"></i></a>
+
+                                                        @*@Html.ActionLink("Read More", "Details","BlogPosts", new { Slug = item.Slug }, new { @class = "btn btn-link text-uppercase" })*@
+
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        @*<div class="col-md-6">
+                                            <div class="single-news">
+                                                <div class="thumbnail">
+                                                    <div class="date"> @item.Created </div> <img alt="100%x200" src="~/Media/blogthumb2.jpg" style="width: 100%; display: block;">
+                                                    <div class="caption">
+                                                        <h3>Thumbnail label</h3>
+                                                        <p>@Html.Raw(item.Body)</p> 
+                                                        <a href="" class="btn btn-link text-uppercase">Read More <i class="icon btn-icon fa fa-long-arrow-right"></i></a>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>*@
+                                    </div>
+
+                                @*</div>*@
+
+                                    }
+
+
+
+
+
+                                @*<div class="single_image_slider_container">
+                                    <div class="single_image_slider">
+                                        <a href=""> <img alt="features-project" src="images/f_project/1.jpg"> </a>
+                                        <a href=""> <img alt="features-project" src="images/f_project/2.jpg"> </a>
+                                        <a href=""> <img alt="features-project" src="images/f_project/3.jpg"> </a>
+                                        <a href=""> <img alt="features-project" src="images/f_project/4.jpg"> </a>
+                                        <a href=""> <img alt="features-project" src="images/f_project/1.jpg"> </a>
+                                        <a href=""> <img alt="features-project" src="images/f_project/2.jpg"> </a>
+                                        <a href=""> <img alt="features-project" src="images/f_project/3.jpg"> </a>
+                                        <a href=""> <img alt="features-project" src="images/f_project/4.jpg"> </a>
+                                    </div>
+                                </div>
+                                <div>
+                                       </div>*@
+                                <!-- End Text -->
+
+                                <!-- Media Gallery -->
+
+                                @*<div class="blog-image"> 
+                                <img alt="features-project" src="images/f_project/4.jpg"> </div>
+                                <div class="blog-image blog-image-center"> 
+                                <img alt="features-project" src="images/f_project/3.jpg"> </div>*@
+                             
+                               
+                              
+                                </div>
+
+                            <!--  // Blog Content  -->
+
+                            <!--  Share Blog post  -->
+                            @*<div class="blog_share_box">
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <ul class="list-inline social pull-left">
+                                            <li class="share_title">Share this post:</li>
+                                        </ul>
+                                        <ul class="list-inline social pull-right">
+                                            <li><a href=""><i class="fa fa-facebook"></i></a> </li>
+                                            <li><a href=""><i class="fa fa-twitter"></i></a> </li>
+                                            <li><a href=""><i class="fa fa-linkedin"></i></a> </li>
+                                            <li><a href=""><i class="fa fa-google-plus"></i></a> </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>*@
+                            <!--  // Share Blog post  -->
+                            <!--  Blog Author  -->
+                            @*<div class="au_summery">
+                                <div class="media">
+                                    <div class="media-left">
+                                        <a href="#"><img alt="image" class="media-object" src="images/user-avatar.png" data-holder-rendered="true"> </a>
+                                    </div>
+                                    <div class="media-body ">
+                                        <h4 class="media-heading">Kabir Uddin</h4>
+                                        <p>Donec sed odio dui. Nullam quis risus eget urna mollis ornare vel eu leo. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.</p>
+                                        <ul class="list-inline social">
+                                            <li><a href=""><i class="fa fa-facebook"></i></a> </li>
+                                            <li><a href=""><i class="fa fa-twitter"></i></a> </li>
+                                            <li><a href=""><i class="fa fa-linkedin"></i></a> </li>
+                                            <li><a href=""><i class="fa fa-google-plus"></i></a> </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>*@
+                            <!-- // Blog Author  -->
+                            
+
+                            <!-- Blog Comments  -->
+                            @*<div class="comments_area">
+                                <div class="comments_list">
+                                    <h3>Comments (3)</h3>
+                                    <div class="media">
+                                        <div class="media-left">
+                                            <a href="#">
+                                            <img alt="image" class="media-object" src="images/user-avatar.png" data-holder-rendered="true"> </a>
+                                        </div>
+                                        <div class="media-body">
+                                            <h4 class="media-heading">JOHN DOE <small>August 2, 2012 at 1:38 pm - <a href="">Reply</a></small></h4>
+                                            What do slugs hate the most?
+                                        </div>
+                                    </div>
+                                    <div class="media">
+                                        <div class="media-left">
+                                            <a href="#">
+                                            <img alt="image" class="media-object" src="images/user-avatar.png" data-holder-rendered="true"> </a>
+                                        </div>
+                                        <div class="media-body">
+                                            <h4 class="media-heading">EMMA JOHNSON <small>August 2, 2012 at 1:38 pm - <a href="">Reply</a></small></h4>
+                                            Slugs hate salt. 
+                                            <div class="media">
+                                                <div class="media-left">
+                                                    <a href="#">
+                                                    <img alt="image" class="media-object" src="images/user-avatar.png" data-holder-rendered="true"> </a>
+                                                </div>
+                                                <div class="media-body">
+                                                    <h4 class="media-heading">SAM BRIN <small>August 2, 2012 at 1:38 pm - <a href="">Reply</a></small></h4>
+                                                    Yes they sure do. 
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                               
+                                <div class="comments_from blog_comment_f">
+                                    <h3> Leave A Comment</h3>
+                                    <div class="row">
+                                        <form>
+                                            <div class="col-md-6">
+                                                <div class="form-group"> <input type="text" class="form-control" id="name" placeholder="Name"> </div>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <div class="form-group"> <input type="email" class="form-control" id="email" placeholder="Email*"> </div>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <div class="form-group"> <input type="tel" class="form-control" id="phone" placeholder="Phone"> </div>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <div class="form-group"> <input type="text" class="form-control" id="website" placeholder="Website"> </div>
+                                            </div>
+                                            <div class="col-md-12"> <textarea class="form-control" rows="5" id="message" placeholder="Message*"></textarea> </div>
+                                            <div class="col-md-12"> <button type="button" class="btn btn-link submit_contact">Submit <i class="icon btn-icon fa fa-long-arrow-right"></i></button> </div>
+                                        </form>
+                                    </div>
+                                </div>
+
+                            </div>*@
+                            <!-- // Blog Comments  -->
+
+                            <!--  Blog Nav -->
+                            @*<nav class="next-prev">
+                                <ul class="pager">
+                                    <li class="previous"><a href="#"><i class="btn-icon fa fa-long-arrow-left"></i> Previous</a></li>
+                                    <li class="next"><a href="#">Next <i class="btn-icon fa fa-long-arrow-right"></i> </a></li>
+                                </ul>
+                            </nav>*@
+
+                            <!--Need for Paged List-->
+                            Page @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber) of @Model.PageCount	@Html.PagedListPager(Model, page => Url.Action("Index", new { page, searchStr = ViewBag.Search }))
+                          
+                        </div>
+                        <!-- // Blog Content Full-->
+
+
+                        <!-- Sidebar -->
+                        <div class="col-md-3 col-md-offset-1">
+                            <div class="sidebar">
+                               
+                                 <!--  Search Bar -->
+                                <div class="sidebar_weg">
+                                    <div class="sidebar_">
+                                        <form class="form-inline search_form">
+
+                                            @using (Html.BeginForm("Index", "Home", FormMethod.Get, htmlAttributes: new { @class = "form" }))
+                                            { 
+                                            <div class="form-group"> 
+                                                <input id="searchStr" name="searchStr" type="text" class="form-control" placeholder="Search here... "> 
+                                                <button id="searchStr" name="searchStr" type="submit" class="btn btn-default">
+                                                    <i class="fa fa-search"></i>
+                                                </button>
+                                            </div>
+                                            }
+                                        </form>
+                                    </div>
+                                </div>
+                                <!--  // Search Bar  -->
+
+                                <!--  Sidebar Single  -->
+                                <div class="sidebar_weg">
+                                    <h3 class="weg_title">Author</h3>
+                                    <div class="sidebar_">
+                                        <div class="au_summery">
+                                            <div class="media">
+                                                <div class="media-body">
+                                                    <img alt="image" class="media-object" src="~/Media/modwhiteblack.jpg" data-holder-rendered="true" style="width: auto; height: 25%;"> 
+                                                    <br>
+                                                    <h4 class="media-heading">Jacob Crawford</h4>
+                                                    <p>The man with the plan.</p>
+                                                    @*<ul class="list-inline social">
+                                                        <li><a href=""><i class="fa fa-facebook"></i></a> </li>
+                                                        <li><a href=""><i class="fa fa-twitter"></i></a> </li>
+                                                        <li><a href=""><i class="fa fa-linkedin"></i></a> </li>
+                                                        <li><a href=""><i class="fa fa-google-plus"></i></a> </li>
+                                                    </ul>*@
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!--  // Sidebar Single  -->
+                                <!--  Sidebar Single  -->
+                                @*<div class="sidebar_weg">
+                                    <h3 class="weg_title">RECENT POSTS</h3>
+                                    <div class="sidebar_">
+                                        <ul class="list-unstyled">
+                                            <li>
+                                                <div class="media">
+                                                    <div class="media-left">
+                                                        <a href="#"> 
+                                                        <img style="width: 50px;" class="media-object" src="images/blog/_1.jpg" alt="..."> </a>
+                                                    </div>
+                                                    <div class="media-body">
+                                                        <h4 class="media-heading">Blog Slideshow Post</h4> <span>May 23rd, 2013</span>
+                                                    </div>
+                                                </div>
+                                            </li>
+                                            <li>
+                                                <div class="media">
+                                                    <div class="media-left">
+                                                        <a href="#"> 
+                                                        <img style="width: 50px;" class="media-object" src="images/blog/_1.jpg" alt="..."> </a>
+                                                    </div>
+                                                    <div class="media-body">
+                                                        <h4 class="media-heading">Blog Slideshow Post</h4> <span>May 23rd, 2013</span>
+                                                    </div>
+                                                </div>
+                                            </li>
+                                            <li>
+                                                <div class="media">
+                                                    <div class="media-left">
+                                                        <a href="#"> 
+                                                        <img style="width: 50px;" class="media-object" src="images/blog/_1.jpg" alt="..."> </a>
+                                                    </div>
+                                                    <div class="media-body">
+                                                        <h4 class="media-heading">Blog Slideshow Post</h4> <span>May 23rd, 2013</span>
+                                                    </div>
+                                                </div>
+                                            </li>
+                                            <li>
+                                                <div class="media">
+                                                    <div class="media-left">
+                                                        <a href="#"> 
+                                                        <img style="width: 50px;" class="media-object" src="images/blog/_1.jpg" alt="..."> </a>
+                                                    </div>
+                                                    <div class="media-body">
+                                                        <h4 class="media-heading">Blog Slideshow Post</h4> <span>May 23rd, 2013</span>
+                                                    </div>
+                                                </div>
+                                            </li>
+                                            <li>
+                                                <div class="media">
+                                                    <div class="media-left">
+                                                        <a href="#"> 
+                                                        <img style="width: 50px;" class="media-object" src="images/blog/_1.jpg" alt="..."> </a>
+                                                    </div>
+                                                    <div class="media-body">
+                                                        <h4 class="media-heading">Blog Slideshow Post</h4> <span>May 23rd, 2013</span>
+                                                    </div>
+                                                </div>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>*@
+                                <!--  // Sidebar Single  -->
+                                <!--  Sidebar Single  -->
+                                @*<div class="sidebar_weg">
+                                    <h3 class="weg_title">RECENT COMMENTS</h3>
+                                    <div class="sidebar_">
+                                        <ul class="list-unstyled">
+                                            <li>
+                                                <div class="media">
+                                                    <div class="media-body">
+                                                        <h4 class="media-heading"> A WordPress Commenter on Hello world! </h4>
+                                                    </div>
+                                                </div>
+                                            </li>
+                                            <li>
+                                                <div class="media">
+                                                    <div class="media-body">
+                                                        <h4 class="media-heading"> Maria on Woo Ninja </h4>
+                                                    </div>
+                                                </div>
+                                            </li>
+                                            <li>
+                                                <div class="media">
+                                                    <div class="media-body">
+                                                        <h4 class="media-heading"> Maria on Premium Quality </h4>
+                                                    </div>
+                                                </div>
+                                            </li>
+                                            <li>
+                                                <div class="media">
+                                                    <div class="media-body">
+                                                        <h4 class="media-heading"> Maria on Woo Logo </h4>
+                                                    </div>
+                                                </div>
+                                            </li>
+                                            <li>
+                                                <div class="media">
+                                                    <div class="media-body">
+                                                        <h4 class="media-heading"> Maria on Ninja Silhouette </h4>
+                                                    </div>
+                                                </div>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>*@
+                                <!--  // Sidebar Single  -->
+                                <!--  Sidebar Single  -->
+                                @*<div class="sidebar_weg">
+                                    <h3 class="weg_title">Categories</h3>
+                                    <div class="sidebar_">
+                                        <ul class="list-unstyled">
+                                            <li>
+                                                <div class="media">
+                                                    <div class="media-body">
+                                                        <h4 class="media-heading">Creative (2)</h4>
+                                                    </div>
+                                                </div>
+                                            </li>
+                                            <li>
+                                                <div class="media">
+                                                    <div class="media-body">
+                                                        <h4 class="media-heading">Design (9)</h4>
+                                                    </div>
+                                                </div>
+                                            </li>
+                                            <li>
+                                                <div class="media">
+                                                    <div class="media-body">
+                                                        <h4 class="media-heading">Image (2)</h4>
+                                                    </div>
+                                                </div>
+                                            </li>
+                                            <li>
+                                                <div class="media">
+                                                    <div class="media-body">
+                                                        <h4 class="media-heading">Photography (9)</h4>
+                                                    </div>
+                                                </div>
+                                            </li>
+                                            <li>
+                                                <div class="media">
+                                                    <div class="media-body">
+                                                        <h4 class="media-heading">Videos (4)</h4>
+                                                    </div>
+                                                </div>
+                                            </li>
+                                            <li>
+                                                <div class="media">
+                                                    <div class="media-body">
+                                                        <h4 class="media-heading">WordPress (4)</h4>
+                                                    </div>
+                                                </div>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>*@
+                                <!--  // Sidebar Single  -->
+                            </div>
+                        </div>
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- // Section : xxx End -->
+@*</div>*@
+<!-- // Page : xxx End -->

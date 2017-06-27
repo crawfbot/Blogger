@@ -1,0 +1,59 @@
+﻿@model Blogger.Models.RegisterViewModel
+@{
+    ViewBag.Title = "Register";
+}
+
+
+ <!-- Section : xxx Start -->
+<div class="section dark page-header" style="background: url('/Media/redbluecosmosinvert.jpg'); background-size: cover;">
+    <div class="bg image overlay"></div>
+    <div class="section-container">
+        <div class="section-body">
+            <div class="container">
+                <h1 style="color: white;">Blog : <small style="color: #dedede;">Share Your Thoughts!</small></h1>
+
+            </div>
+        </div>
+    </div>
+</div>
+<!-- // Section : xxx End -->
+
+<br />
+
+@using (Html.BeginForm("Register", "Account", FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
+{
+    @Html.AntiForgeryToken()
+    <h4>Create a new account.</h4>
+    <hr />
+    @Html.ValidationSummary("", new { @class = "text-danger" })
+    <div class="form-group">
+        @Html.LabelFor(m => m.Email, new { @class = "col-md-2 control-label" })
+        <div class="col-md-10">
+            @Html.TextBoxFor(m => m.Email, new { @class = "form-control" })
+        </div>
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(m => m.Password, new { @class = "col-md-2 control-label" })
+        <div class="col-md-10">
+            @Html.PasswordFor(m => m.Password, new { @class = "form-control" })
+        </div>
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(m => m.ConfirmPassword, new { @class = "col-md-2 control-label" })
+        <div class="col-md-10">
+            @Html.PasswordFor(m => m.ConfirmPassword, new { @class = "form-control" })
+        </div>
+    </div>
+    <br />
+    <div class="form-group">
+        <div class="col-md-offset-2 col-md-10">
+            <input type="submit" class="btn btn-info btn-block" value="Register" />
+        </div>
+    </div>
+}
+
+<br />
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

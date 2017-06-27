@@ -1,0 +1,164 @@
+﻿@model Blogger.Models.BlogPost
+
+<div>
+    <!--God Div-->
+    <!-- Section : xxx Start -->
+    @*<div class="section dark page-header"  style="background: url('/Media/redbluecosmosinvert.jpg'); background-size: cover;">
+        <div class="bg image overlay"></div>
+        <div class="section-container">
+            <div class="section-body">
+                <div class="container">
+                    <h1 style="color: white; text-shadow: 0px -1px 4px white, 0px -2px 10px yellow, 0px -10px 20px #ff8000, 0px -18px 40px red;">
+                        @Html.DisplayFor(model => model.Title)
+                    </h1>
+
+                    <h4 style="color: white; text-shadow: 0px -1px 4px white, 0px -2px 10px yellow, 0px -10px 20px #ff8000, 0px -18px 40px red;">
+                        Posted on @Html.DisplayFor(model => model.Created)
+                    </h4>
+
+
+                </div>
+            </div>
+        </div>
+    </div>*@
+    <!-- // Section : xxx End -->
+
+
+
+    <div class="section light blog">
+        <div class="bg overlay"></div>
+        <div class="section-container">
+            <div class="section-body" id="blogdetail">
+                <div class="container">
+                    <div class="row"> <!--Blog Post Title Row-->
+                        <div class="col-md-12" style="background: transparent;">
+                            <h1 style="text-align: center; color: white;">
+                                @Html.DisplayFor(model => model.Title)
+                            </h1>
+
+                            <h4 style="text-align: center; color: white;">
+                                <span><i class="fa fa-clock-o" aria-hidden="true"></i></span> Posted: @Html.DisplayFor(model => model.Created)
+                            </h4>
+                        </div>
+                    </div>
+
+                    <div class="row">
+
+                        <!-- Blog Content Full -->
+                        <div class="col-md-12" >
+                            <div class="blog-item-body" >
+                                <!--Includes Entire BlogPost-->
+
+                                <br /> @*style="box-shadow: 0px -1px 4px white, 0px -2px 10px yellow, 0px -10px 20px #ff8000, 0px -18px 40px red;"*@
+
+                                <div class="row col-md-offset-0 col-md-12 well blogpost" >
+
+                                    <div class="col-md-2" style="border-right: 1px inset #d3d3d3;">
+
+
+                                        @if (Model.MediaURL != null)
+            {
+                                            <img src="@Url.Content(Model.MediaURL)" alt="" style="max-width: 120px;  max-height: 120px; width: auto;  height: auto; border: 2px outset #404040" />
+                                        }
+                                        else
+                                        {
+                                            <a href="#">No Image</a>
+                                        }
+                                    </div>
+
+                                    <div class="col-md-10" style="max-height: 350px; overflow-y: scroll;">
+                                        @Html.Raw(Model.Body)
+                                    </div>
+
+                                </div>
+
+
+
+
+
+                                <div class="btn-group btn-group-justified col-md-8" style="margin-bottom: 10px;">
+                                    @Html.ActionLink("Back to BlogPost List", "Index", "BlogPosts", new { @class = "btn btn-default" })
+                                    @Html.ActionLink("Edit This BlogPost", "Edit", "BlogPosts", new { id = Model.Id }, new { @class = "btn btn-default" })
+                                </div>
+
+                            <br />
+                                <hr />
+
+                                <div class="well blogcomments">
+                                    <!--Encompasses Comments and Add Comment Sections-->
+
+                                    <h2 style="text-align: center; color: #f5f5f5;">Comments <span><i class="pe-7s-pen"></i></span></h2>
+
+                                    @foreach (var comment in Model.Comments)
+                                    {
+                                        <div class="row col-md-12 well commententry">
+                                            <div class="row">
+                                                <div class="col-md-10">
+                                                    @Html.Raw(comment.Body)
+                                                </div>
+                                                <div class="col-md-2 btn btn-default name-btn">
+                                                    @comment.Author.FirstName <span> </span> @comment.Author.LastName
+                                                </div>
+                                            </div> <!--End Top Row-->
+                                            <div>
+                                                <!--Begin Bottom Row-->
+                                                <div class="col-md-12 col-md-offset-4" style="margin-bottom: 0px; padding-bottom: 0px;">
+                                                    @Html.ActionLink("Edit Comment", "Edit", "Comments", new { id = comment.Id }, new { @class = "btn  btn-xs btn-default" })
+                                                    @Html.ActionLink("Delete Comment", "Delete", "Comments", new { id = comment.Id }, new { @class = "btn  btn-xs btn-default" })
+                                                </div>
+                                            </div> <!--End Bottom Row-->
+
+
+                                        </div> <!--End Comment/Main Row-->
+
+                                        <br />
+                                    }
+
+
+
+                                    @using (Html.BeginForm("Creater", "Comments", new { id = Model.Id }, FormMethod.Post, Model.Slug))
+                                    {
+                                        @Html.AntiForgeryToken()
+                                        <div class="form-horizontal col-md-offset-0">
+                                            <div class="form-group">
+
+                                                <div class="col-md-12">
+                                                    <input class="newcomment cr" rows="5" id="Body" name="Body" />
+
+                                                </div>
+                                            </div>
+
+                                            <div class="form-group">
+                                                <div class="col-md-12">
+                                                    <input type="submit" value="Post Comment" class="btn btn-success btn-block" />
+                                                </div>
+                                            </div>
+                                        </div>
+                                    }
+
+                                </div> <!--End Comment and Add Comment Section-->
+
+                                <br />
+
+                            </div> <!--End Blog-item-body Div-->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div> <!-- God Div-->
+
+
+                        @section Scripts {
+                            <script src="~/Scripts/tinymce/tinymce.js"></script>
+                            <script src="~/Scripts/tinymce/jquery.tinymce.min.js"></script>
+                            <script>
+                                $(function () {
+                                    $('.cr').tinymce({});
+                                })
+                            </script>
+                        }
+
+
